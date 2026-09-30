@@ -51,14 +51,14 @@
                     android:padding="@dimen/spacing_md">
 
                     <FrameLayout
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_badge_info">
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_icon_squircle">
 
                         <ImageView
                             android:id="@+id/ivDetailAppIcon"
-                            android:layout_width="26dp"
-                            android:layout_height="26dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:layout_gravity="center"
                             android:contentDescription="@null"
                             android:src="@drawable/ic_app_default" />

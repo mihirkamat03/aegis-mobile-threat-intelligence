@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.aether.aegis.adapters.ActivityAdapter;
 import com.aether.aegis.data.repository.AegisRepository;
 import com.aether.aegis.databinding.FragmentActivityBinding;
+import com.aether.aegis.ui.motion.MotionUtils;
 
 public class ActivityFragment extends Fragment implements AegisRepository.DataChangeListener {
 
@@ -35,6 +36,12 @@ public class ActivityFragment extends Fragment implements AegisRepository.DataCh
         binding.rvActivityTimeline.setAdapter(activityAdapter);
 
         activityAdapter.updateList(AegisRepository.getInstance().getTimeline());
+
+        MotionUtils.staggerViews(
+                binding.tvTimelineTitle,
+                binding.cardTemporalDrift,
+                binding.rvActivityTimeline
+        );
 
         AegisRepository.getInstance().addListener(this);
     }

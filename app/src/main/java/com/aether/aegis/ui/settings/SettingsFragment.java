@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.aether.aegis.data.repository.AegisRepository;
 import com.aether.aegis.databinding.FragmentSettingsBinding;
+import com.aether.aegis.ui.motion.MotionUtils;
 
 public class SettingsFragment extends Fragment {
 
@@ -27,6 +28,16 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        MotionUtils.staggerViews(
+                binding.tvSettingsTitle,
+                binding.cardPrivacyArchitecture,
+                binding.cardPreferenceToggles,
+                binding.btnClearHistory,
+                binding.cardAboutAegis
+        );
+
+        MotionUtils.addPressFeedback(binding.btnClearHistory);
 
         binding.switchLocalDns.setOnCheckedChangeListener((buttonView, isChecked) -> {
             String status = isChecked ? "Enabled: Local C2 blocking active" : "Disabled";

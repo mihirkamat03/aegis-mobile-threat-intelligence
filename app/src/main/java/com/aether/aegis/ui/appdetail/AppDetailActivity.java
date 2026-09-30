@@ -57,11 +57,33 @@ public class AppDetailActivity extends AppCompatActivity implements AegisReposit
         setupCategoryTabs();
         populateAppDetails();
 
+        // Staggered entrance animations
+        com.aether.aegis.ui.motion.MotionUtils.staggerViews(
+                binding.ivDetailAppIcon,
+                binding.tvDetailAppName,
+                binding.detailRiskRing,
+                binding.tvDiagnosticExplanation,
+                binding.evidenceGraphView,
+                binding.tvSelectedNodeDetail,
+                binding.tabPerms,
+                binding.rvCategoryItems
+        );
+
+        // Touch press feedback on category tabs
+        com.aether.aegis.ui.motion.MotionUtils.addPressFeedback(
+                binding.tabPerms,
+                binding.tabNetwork,
+                binding.tabRecs
+        );
+
         AegisRepository.getInstance().addListener(this);
     }
 
     private void setupToolbar() {
-        binding.detailToolbar.setNavigationOnClickListener(v -> finish());
+        binding.detailToolbar.setNavigationOnClickListener(v -> {
+            finish();
+            overridePendingTransition(android.R.anim.fade_in, R.anim.fragment_exit);
+        });
     }
 
     private void populateAppDetails() {

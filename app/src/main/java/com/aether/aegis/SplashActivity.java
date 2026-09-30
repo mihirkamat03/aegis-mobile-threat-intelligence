@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.aether.aegis.databinding.ActivitySplashBinding;
+import com.aether.aegis.ui.motion.MotionUtils;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -22,18 +23,24 @@ public class SplashActivity extends AppCompatActivity {
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Subtle entrance micro-animation (smooth & purposeful)
-        binding.llSplashContent.setAlpha(0.2f);
-        binding.llSplashContent.setScaleX(0.94f);
-        binding.llSplashContent.setScaleY(0.94f);
-
-        binding.llSplashContent.animate()
-                .alpha(1.0f)
+        // Luxurious spring entrance on shield emblem
+        binding.flSplashEmblem.setScaleX(0.7f);
+        binding.flSplashEmblem.setScaleY(0.7f);
+        binding.flSplashEmblem.setAlpha(0.0f);
+        binding.flSplashEmblem.animate()
                 .scaleX(1.0f)
                 .scaleY(1.0f)
-                .setDuration(600)
-                .setInterpolator(new DecelerateInterpolator(1.6f))
+                .alpha(1.0f)
+                .setDuration(650)
+                .setInterpolator(new OvershootInterpolator(1.35f))
                 .start();
+
+        // Staggered entrance for wordmark, tagline, and footer
+        MotionUtils.staggerViews(
+                binding.tvSplashLogo,
+                binding.tvSplashTagline,
+                binding.tvSplashFooter
+        );
 
         // Transition to Overview (MainActivity) after 1.2 seconds max
         launchRunnable = () -> {

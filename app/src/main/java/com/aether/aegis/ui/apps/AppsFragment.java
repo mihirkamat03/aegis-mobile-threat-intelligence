@@ -21,6 +21,8 @@ import com.aether.aegis.data.repository.AegisRepository;
 import com.aether.aegis.databinding.FragmentAppsBinding;
 import com.aether.aegis.ui.appdetail.AppDetailActivity;
 
+import com.aether.aegis.ui.motion.MotionUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +56,22 @@ public class AppsFragment extends Fragment implements AegisRepository.DataChange
         setupFilters();
         setupSearch();
         filterAndDisplay();
+
+        // Staggered entrance animation
+        MotionUtils.staggerViews(
+                binding.etSearchApps,
+                binding.chipAll,
+                binding.tvAppStatsCounter,
+                binding.rvAppsList
+        );
+
+        // Touch feedback on filter chips
+        MotionUtils.addPressFeedback(
+                binding.chipAll,
+                binding.chipHighRisk,
+                binding.chipPrivacyDrift,
+                binding.chipThreatMatched
+        );
 
         AegisRepository.getInstance().addListener(this);
     }

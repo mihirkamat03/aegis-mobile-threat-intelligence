@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements AegisRepository.D
                 Toast.makeText(this, AegisRepository.getInstance().getBackendStatusLabel(), Toast.LENGTH_SHORT).show();
             });
         });
+        MotionUtils.addPressFeedback(binding.btnDemoScenario);
     }
 
     private void updateDemoButtonUI() {
@@ -132,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements AegisRepository.D
         if (fragment == currentFragment) return;
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        transaction.setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit);
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
 

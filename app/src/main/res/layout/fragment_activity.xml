@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tvTimelineTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_md"
@@ -20,6 +21,7 @@
 
     <!-- Behaviour Memory Baseline vs Drift Card -->
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTemporalDrift"
         style="@style/AEGIS.Card.Hero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

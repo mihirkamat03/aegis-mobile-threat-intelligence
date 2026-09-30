@@ -14,6 +14,7 @@
         android:paddingBottom="@dimen/spacing_3xl">
 
         <TextView
+            android:id="@+id/tvSettingsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/settings_title"
@@ -23,6 +24,7 @@
 
         <!-- Privacy Architecture Card -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPrivacyArchitecture"
             style="@style/AEGIS.Card.Hero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,6 +75,7 @@
 
         <!-- Preference Toggles Card -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPreferenceToggles"
             style="@style/AEGIS.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -183,6 +186,7 @@
 
         <!-- About AEGIS -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAboutAegis"
             style="@style/AEGIS.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -47,12 +47,25 @@
                 android:textColor="@color/aegis_safe"
                 android:textSize="12sp" />
 
-            <!-- The Visual Centerpiece: Custom Animated Risk Ring -->
-            <com.aether.aegis.ui.components.RiskRingView
-                android:id="@+id/riskRingOverview"
-                android:layout_width="190dp"
-                android:layout_height="190dp"
-                android:layout_marginTop="@dimen/spacing_sm" />
+            <!-- The Visual Centerpiece: Ambient Glow Layer + Custom Animated Risk Ring -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm">
+
+                <View
+                    android:id="@+id/viewHeroAmbientGlow"
+                    android:layout_width="220dp"
+                    android:layout_height="220dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_glow_hero_center" />
+
+                <com.aether.aegis.ui.components.RiskRingView
+                    android:id="@+id/riskRingOverview"
+                    android:layout_width="190dp"
+                    android:layout_height="190dp"
+                    android:layout_gravity="center" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/tvActiveThreatSummary"
@@ -359,26 +372,28 @@
                         android:id="@+id/btnInvestigateNow"
                         style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="0dp"
-                        android:layout_height="38dp"
-                        android:layout_marginEnd="@dimen/spacing_2xs"
+                        android:layout_height="42dp"
+                        android:layout_marginEnd="@dimen/spacing_xs"
                         android:layout_weight="1"
                         android:backgroundTint="@color/aegis_danger"
                         android:text="Investigate"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_secondary"
-                        app:cornerRadius="@dimen/radius_control" />
+                        android:textStyle="bold"
+                        app:cornerRadius="21dp" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnQuickBlock"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                         android:layout_width="0dp"
-                        android:layout_height="38dp"
-                        android:layout_marginStart="@dimen/spacing_2xs"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="@dimen/spacing_xs"
                         android:layout_weight="1"
                         android:text="@string/simulate_block_button"
                         android:textColor="@color/aegis_info"
                         android:textSize="@dimen/text_secondary"
-                        app:cornerRadius="@dimen/radius_control"
+                        android:textStyle="bold"
+                        app:cornerRadius="21dp"
                         app:strokeColor="@color/aegis_info_stroke" />
                 </LinearLayout>
 

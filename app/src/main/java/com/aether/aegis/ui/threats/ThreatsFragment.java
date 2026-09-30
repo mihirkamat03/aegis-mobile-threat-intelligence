@@ -51,6 +51,21 @@ public class ThreatsFragment extends Fragment implements AegisRepository.DataCha
         setupFilters();
         filterAndDisplay();
 
+        // Staggered entrance animation
+        com.aether.aegis.ui.motion.MotionUtils.staggerViews(
+                binding.chipThreatAll,
+                binding.tvThreatCounter,
+                binding.rvThreatsList
+        );
+
+        // Touch feedback on filter chips
+        com.aether.aegis.ui.motion.MotionUtils.addPressFeedback(
+                binding.chipThreatAll,
+                binding.chipThreatCritical,
+                binding.chipThreatHigh,
+                binding.chipThreatResolved
+        );
+
         AegisRepository.getInstance().addListener(this);
     }
 

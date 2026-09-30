@@ -23,6 +23,8 @@ import com.aether.aegis.data.repository.AegisRepository;
 import com.aether.aegis.databinding.FragmentOverviewBinding;
 import com.aether.aegis.ui.appdetail.AppDetailActivity;
 
+import com.aether.aegis.ui.motion.MotionUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +49,32 @@ public class OverviewFragment extends Fragment implements AegisRepository.DataCh
         bindData();
 
         AegisRepository.getInstance().addListener(this);
+
+        // Staggered Entrance Animation (Assembles naturally across the screen)
+        MotionUtils.staggerViews(
+                binding.tvHeroTitle,
+                binding.tvDeviceStatus,
+                binding.viewHeroAmbientGlow,
+                binding.riskRingOverview,
+                binding.tvActiveThreatSummary,
+                binding.cardThreatMetric,
+                binding.cardPrivacyMetric,
+                binding.cardImmediateAction,
+                binding.rvTopRiskyApps,
+                binding.rvOverviewActivity
+        );
+
+        // Micro-Interactions: Spring touch feedback on interactive elements
+        MotionUtils.addPressFeedback(
+                binding.btnInvestigateNow,
+                binding.btnQuickBlock,
+                binding.cardThreatMetric,
+                binding.cardPrivacyMetric,
+                binding.cardImmediateAction
+        );
+
+        // Micro-Interactions: Gentle pulse for critical alert badge
+        MotionUtils.startGentlePulse(binding.tvCorrelatedThreatBadge);
 
         binding.btnInvestigateNow.setOnClickListener(v -> {
             Intent intent = new Intent(getContext(), AppDetailActivity.class);
