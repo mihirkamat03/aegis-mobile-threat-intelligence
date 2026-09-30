@@ -1,0 +1,64 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme: Premium Light Security UI -->
+    <style name="Theme.AEGIS" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/aegis_info</item>
+        <item name="colorPrimaryVariant">@color/aegis_surface</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/aegis_safe</item>
+        <item name="colorSecondaryVariant">@color/aegis_surface</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- System Bars (Light Theme with Dark Icons) -->
+        <item name="android:statusBarColor">@color/aegis_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/aegis_surface</item>
+        <item name="android:windowBackground">@drawable/bg_glow_light</item>
+
+        <!-- Default Text Colors -->
+        <item name="android:textColorPrimary">@color/aegis_text_primary</item>
+        <item name="android:textColorSecondary">@color/aegis_text_secondary</item>
+    </style>
+
+    <!-- AEGIS Design System Cards -->
+    <style name="AEGIS.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/aegis_card</item>
+        <item name="cardCornerRadius">@dimen/radius_card</item>
+        <item name="cardElevation">1dp</item>
+        <item name="strokeColor">@color/aegis_border</item>
+        <item name="strokeWidth">@dimen/stroke_subtle</item>
+    </style>
+
+    <style name="AEGIS.Card.Hero" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/aegis_card</item>
+        <item name="cardCornerRadius">@dimen/radius_hero</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeColor">@color/aegis_border</item>
+        <item name="strokeWidth">@dimen/stroke_subtle</item>
+    </style>
+
+    <style name="AEGIS.Card.Elevated" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/aegis_card</item>
+        <item name="cardCornerRadius">@dimen/radius_card</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeColor">@color/aegis_border</item>
+        <item name="strokeWidth">@dimen/stroke_subtle</item>
+    </style>
+
+    <!-- Badges & Chips -->
+    <style name="AEGIS.Badge" parent="">
+        <item name="android:textSize">@dimen/text_technical</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <!-- Typography -->
+    <style name="AEGIS.Text.Mono" parent="">
+        <item name="android:typeface">monospace</item>
+        <item name="android:textColor">@color/aegis_text_code</item>
+        <item name="android:textSize">@dimen/text_technical</item>
+    </style>
+</resources>

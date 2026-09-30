@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AEGIS</string>
+    <string name="tagline">Mobile Threat Intelligence &amp; Privacy Monitoring</string>
+
+    <!-- Nav Items -->
+    <string name="nav_overview">Overview</string>
+    <string name="nav_apps">Apps</string>
+    <string name="nav_threats">Threats</string>
+    <string name="nav_activity">Activity</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Overview -->
+    <string name="status_protected">DEVICE PROTECTED</string>
+    <string name="status_threat_detected">ATTENTION REQUIRED</string>
+    <string name="threat_risk">Threat Risk</string>
+    <string name="privacy_risk">Privacy Risk</string>
+    <string name="immediate_action_title">Immediate Action Required</string>
+    <string name="top_risky_apps">Top Risky Applications</string>
+    <string name="view_all">View All</string>
+    <string name="recent_security_events">Recent Security Events</string>
+    <string name="demo_mode_button">Run Demo Scenario</string>
+    <string name="demo_reset_button">Reset Demo</string>
+    <string name="simulate_block_button">Simulate Block</string>
+
+    <!-- Apps -->
+    <string name="search_apps_hint">Search apps, packages, or permissions...</string>
+    <string name="filter_all">All Apps</string>
+    <string name="filter_high_risk">High Risk</string>
+    <string name="filter_privacy_drift">Privacy Drift</string>
+    <string name="filter_threat_matched">Threat Matched</string>
+
+    <!-- App Detail / Investigation -->
+    <string name="investigation_workspace">Investigation Workspace</string>
+    <string name="why_title">Why is this application risky?</string>
+    <string name="evidence_chain_title">Evidence Chain</string>
+    <string name="risk_score_breakdown">Risk Attribution</string>
+    <string name="recommended_actions">Recommended Actions</string>
+    <string name="permissions_category">Permissions</string>
+    <string name="network_category">Network (Simulated)</string>
+    <string name="behaviour_category">Behaviour Baseline</string>
+    <string name="threat_intel_category">Threat Intelligence (Simulated)</string>
+
+    <!-- Threats -->
+    <string name="threat_center">Threat Center</string>
+    <string name="filter_critical">Critical</string>
+    <string name="filter_high">High</string>
+    <string name="filter_medium">Medium</string>
+    <string name="filter_resolved">Resolved</string>
+
+    <!-- Activity -->
+    <string name="behaviour_memory_timeline">Behaviour Memory Timeline</string>
+    <string name="temporal_drift_analysis">Temporal Baseline vs Recent Drift (Simulated)</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Security &amp; Privacy Vault</string>
+    <string name="telemetry_preferences">Telemetry Engine</string>
+    <string name="local_dns_filtering">Local DNS Firewall (Demo Simulation)</string>
+    <string name="local_dns_desc">Simulates blocking recognized C2 and tracking hosts without active VPN</string>
+    <string name="threat_feeds">External Threat Feeds (Demo Subscriptions)</string>
+    <string name="threat_feeds_desc">Simulated feeds mapped to AbuseIPDB, OTX AlienVault &amp; Quad9 signatures</string>
+    <string name="data_minimization">On-Device Privacy &amp; Prototype Boundaries</string>
+    <string name="clear_history">Purge Local Behaviour History</string>
+</resources>

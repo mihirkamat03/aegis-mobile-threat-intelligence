@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/spacing_md"
+    android:paddingEnd="@dimen/spacing_md">
+
+    <!-- Continuous Vertical Rail -->
+    <View
+        android:id="@+id/timelineRailTop"
+        android:layout_width="2dp"
+        android:layout_height="14dp"
+        android:background="@color/aegis_border"
+        app:layout_constraintEnd_toEndOf="@+id/dotSeverity"
+        app:layout_constraintStart_toStartOf="@+id/dotSeverity"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Severity Node Dot -->
+    <View
+        android:id="@+id/dotSeverity"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/bg_badge_danger"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timelineRailTop" />
+
+    <View
+        android:id="@+id/timelineRailBottom"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="@color/aegis_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dotSeverity"
+        app:layout_constraintStart_toStartOf="@+id/dotSeverity"
+        app:layout_constraintTop_toBottomOf="@+id/dotSeverity" />
+
+    <!-- Event Card -->
+    <com.google.android.material.card.MaterialCardView
+        style="@style/AEGIS.Card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_sm"
+        android:layout_marginTop="@dimen/spacing_2xs"
+        android:layout_marginBottom="@dimen/spacing_xs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dotSeverity"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_sm">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvEventTime"
+                    style="@style/AEGIS.Text.Mono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/aegis_text_muted"
+                    android:textSize="@dimen/text_technical"
+                    tools:text="10:44 PM" />
+
+                <TextView
+                    android:id="@+id/tvEventApp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_xs"
+                    android:layout_weight="1"
+                    android:textColor="@color/aegis_info"
+                    android:textSize="@dimen/text_technical"
+                    tools:text="QuickPDF Reader" />
+
+                <TextView
+                    android:id="@+id/tvScoreShift"
+                    style="@style/AEGIS.Badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_badge_danger"
+                    android:textColor="@color/aegis_danger"
+                    android:textSize="10sp"
+                    android:visibility="visible"
+                    tools:text="24 → 84" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvEventTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textColor="@color/aegis_text_primary"
+                android:textSize="@dimen/text_secondary"
+                android:textStyle="bold"
+                tools:text="Risk Score Escalation: 24 → 84" />
+
+            <TextView
+                android:id="@+id/tvEventDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:lineSpacingExtra="1.5dp"
+                android:textColor="@color/aegis_text_secondary"
+                android:textSize="@dimen/text_technical"
+                tools:text="Correlation engine connected microphone access with verified C2 endpoint." />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

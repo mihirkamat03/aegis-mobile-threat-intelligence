@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_glow_light"
+    android:orientation="vertical">
+
+    <!-- Search Input Bar -->
+    <com.google.android.material.card.MaterialCardView
+        style="@style/AEGIS.Card"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:layout_marginEnd="@dimen/spacing_md"
+        app:cardCornerRadius="@dimen/radius_control">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_sm"
+            android:paddingEnd="@dimen/spacing_sm">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_search"
+                app:tint="@color/aegis_text_muted" />
+
+            <EditText
+                android:id="@+id/etSearchApps"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:background="@null"
+                android:hint="@string/search_apps_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:textColor="@color/aegis_text_primary"
+                android:textColorHint="@color/aegis_text_muted"
+                android:textSize="@dimen/text_secondary" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Horizontal Category Filter Chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:overScrollMode="never"
+        android:paddingStart="@dimen/spacing_md"
+        android:paddingEnd="@dimen/spacing_md"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/spacing_2xs"
+            android:paddingBottom="@dimen/spacing_2xs">
+
+            <TextView
+                android:id="@+id/chipAll"
+                style="@style/AEGIS.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:background="@drawable/bg_chip_selected"
+                android:text="@string/filter_all"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/chipHighRisk"
+                style="@style/AEGIS.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:background="@drawable/bg_chip_unselected"
+                android:text="@string/filter_high_risk"
+                android:textColor="@color/aegis_text_secondary" />
+
+            <TextView
+                android:id="@+id/chipPrivacyDrift"
+                style="@style/AEGIS.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:background="@drawable/bg_chip_unselected"
+                android:text="@string/filter_privacy_drift"
+                android:textColor="@color/aegis_text_secondary" />
+
+            <TextView
+                android:id="@+id/chipThreatMatched"
+                style="@style/AEGIS.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip_unselected"
+                android:text="@string/filter_threat_matched"
+                android:textColor="@color/aegis_text_secondary" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <!-- Subtitle Counter -->
+    <TextView
+        android:id="@+id/tvAppStatsCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:layout_marginEnd="@dimen/spacing_md"
+        android:layout_marginBottom="@dimen/spacing_2xs"
+        android:letterSpacing="0.02"
+        android:text="5 Monitored · 2 Elevated · 3 Baseline Safe"
+        android:textColor="@color/aegis_text_muted"
+        android:textSize="@dimen/text_technical" />
+
+    <!-- Application Inventory List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAppsList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingBottom="@dimen/spacing_lg"
+        tools:listitem="@layout/item_app" />
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/layoutEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_xl"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_shield_check"
+            app:tint="@color/aegis_text_muted" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:text="No Matching Applications"
+            android:textColor="@color/aegis_text_primary"
+            android:textSize="@dimen/text_primary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2xs"
+            android:text="Try refining your search keyword or active filter"
+            android:textColor="@color/aegis_text_secondary"
+            android:textSize="@dimen/text_secondary" />
+    </LinearLayout>
+
+</LinearLayout>

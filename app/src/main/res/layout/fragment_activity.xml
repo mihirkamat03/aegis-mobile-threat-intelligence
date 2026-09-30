@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_glow_light"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:layout_marginEnd="@dimen/spacing_md"
+        android:text="@string/behaviour_memory_timeline"
+        android:textColor="@color/aegis_text_primary"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold" />
+
+    <!-- Behaviour Memory Baseline vs Drift Card -->
+    <com.google.android.material.card.MaterialCardView
+        style="@style/AEGIS.Card.Hero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:layout_marginEnd="@dimen/spacing_md">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_md">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.04"
+                android:text="@string/temporal_drift_analysis"
+                android:textColor="@color/aegis_info"
+                android:textSize="@dimen/text_secondary"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:orientation="horizontal">
+
+                <!-- Historical Baseline -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_badge_safe"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_xs">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.06"
+                        android:text="Baseline Normal"
+                        android:textColor="@color/aegis_safe"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="• 3 endpoints avg\n• 0 background mic\n• 450 KB / day"
+                        android:textColor="@color/aegis_text_secondary"
+                        android:textSize="@dimen/text_technical" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/spacing_xs"
+                    android:layout_height="match_parent" />
+
+                <!-- Recent Drift (Simulated Telemetry) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_badge_danger"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_xs">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.06"
+                        android:text="Observed Drift (Simulated)"
+                        android:textColor="@color/aegis_danger"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="• 14 new endpoints (Simulated)\n• 5 bg audio accesses\n• 18.2 MB exfil (Simulated)"
+                        android:textColor="@color/aegis_text_secondary"
+                        android:textSize="@dimen/text_technical" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:layout_marginEnd="@dimen/spacing_md"
+        android:letterSpacing="0.04"
+        android:text="Chronological Forensic Events"
+        android:textColor="@color/aegis_text_muted"
+        android:textSize="@dimen/text_technical"
+        android:textStyle="bold" />
+
+    <!-- RecyclerView of events -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvActivityTimeline"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_2xs"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingBottom="@dimen/spacing_lg"
+        tools:listitem="@layout/item_activity_event" />
+
+</LinearLayout>

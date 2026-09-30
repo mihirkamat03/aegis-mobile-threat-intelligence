@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_glow_light">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/aegis_surface">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/detailToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_right"
+            app:navigationIconTint="@color/aegis_text_primary"
+            app:title="@string/investigation_workspace"
+            app:titleTextColor="@color/aegis_text_primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/spacing_3xl">
+
+            <!-- Hero App Header Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AEGIS.Card.Hero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_md">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_md">
+
+                    <FrameLayout
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_badge_info">
+
+                        <ImageView
+                            android:id="@+id/ivDetailAppIcon"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_app_default" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_sm"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDetailAppName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/aegis_text_primary"
+                            android:textSize="@dimen/text_section"
+                            android:textStyle="bold"
+                            tools:text="QuickPDF Reader" />
+
+                        <TextView
+                            android:id="@+id/tvDetailPackage"
+                            style="@style/AEGIS.Text.Mono"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/aegis_text_code"
+                            android:textSize="@dimen/text_technical"
+                            tools:text="com.quickpdf.reader · v2.4.1" />
+
+                        <TextView
+                            android:id="@+id/tvInstallSourceBadge"
+                            style="@style/AEGIS.Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/bg_badge_warning"
+                            android:text="Sideloaded APK"
+                            android:textColor="@color/aegis_warning" />
+
+                    </LinearLayout>
+
+                    <!-- Compact Risk Ring -->
+                    <com.aether.aegis.ui.components.RiskRingView
+                        android:id="@+id/detailRiskRing"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- The "Why this matters" Diagnostic Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AEGIS.Card.Elevated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:layout_marginEnd="@dimen/spacing_md"
+                app:strokeColor="@color/aegis_danger_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_md">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/why_title"
+                            android:textColor="@color/aegis_danger"
+                            android:textSize="@dimen/text_primary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCorrelationBadge"
+                            style="@style/AEGIS.Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_danger"
+                            android:text="MULTI-SIGNAL CORRELATED"
+                            android:textColor="@color/aegis_danger"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvDiagnosticExplanation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:lineSpacingExtra="3dp"
+                        android:textColor="@color/aegis_text_primary"
+                        android:textSize="@dimen/text_secondary"
+                        tools:text="QuickPDF Reader is flagged HIGH RISK because it requested audio recording capabilities outside user interaction, initiated 14 socket connections to an unclassified domain with zero reputation history, and matches an emerging C2 indicator from AbuseIPDB." />
+
+                    <!-- Divider -->
+                    <View
+                        android:id="@+id/dividerRiskBreakdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:layout_marginBottom="@dimen/spacing_sm"
+                        android:background="@color/aegis_border_subtle" />
+
+                    <!-- Structured Visual Breakdown Section -->
+                    <LinearLayout
+                        android:id="@+id/llRiskBreakdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.05"
+                            android:text="SIGNAL RISK BREAKDOWN"
+                            android:textColor="@color/aegis_text_muted"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <!-- Row 1: Mic Access -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Microphone Access (Screen Off)"
+                                android:textColor="@color/aegis_text_secondary"
+                                android:textSize="@dimen/text_technical" />
+
+                            <TextView
+                                android:id="@+id/tvBreakdownMic"
+                                style="@style/AEGIS.Text.Mono"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+15"
+                                android:textColor="@color/aegis_warning"
+                                android:textSize="@dimen/text_technical"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Row 2: Destination Spike -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Destination Spike (3 → 14/hr, +367%)"
+                                android:textColor="@color/aegis_text_secondary"
+                                android:textSize="@dimen/text_technical" />
+
+                            <TextView
+                                android:id="@+id/tvBreakdownDrift"
+                                style="@style/AEGIS.Text.Mono"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+25"
+                                android:textColor="@color/aegis_warning"
+                                android:textSize="@dimen/text_technical"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Row 3: Suspicious Domain -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Untrusted Dynamic DNS (hopto.org)"
+                                android:textColor="@color/aegis_text_secondary"
+                                android:textSize="@dimen/text_technical" />
+
+                            <TextView
+                                android:id="@+id/tvBreakdownDomain"
+                                style="@style/AEGIS.Text.Mono"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+20"
+                                android:textColor="@color/aegis_danger"
+                                android:textSize="@dimen/text_technical"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Row 4: Threat Intel Match -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Threat Intel Match (AbuseIPDB 96%)"
+                                android:textColor="@color/aegis_text_secondary"
+                                android:textSize="@dimen/text_technical" />
+
+                            <TextView
+                                android:id="@+id/tvBreakdownIntel"
+                                style="@style/AEGIS.Text.Mono"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="+30"
+                                android:textColor="@color/aegis_danger"
+                                android:textSize="@dimen/text_technical"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Row 5: Total Calculated Score -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Total Correlated Impact"
+                                android:textColor="@color/aegis_text_primary"
+                                android:textSize="@dimen/text_technical"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvBreakdownTotal"
+                                style="@style/AEGIS.Text.Mono"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="84 / 100"
+                                android:textColor="@color/aegis_danger"
+                                android:textSize="@dimen/text_secondary"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Divider -->
+                    <View
+                        android:id="@+id/dividerRiskEvolution"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:layout_marginBottom="@dimen/spacing_xs"
+                        android:background="@color/aegis_border_subtle" />
+
+                    <!-- Risk Evolution Step Progression Pills -->
+                    <LinearLayout
+                        android:id="@+id/llRiskEvolution"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:letterSpacing="0.05"
+                            android:text="DRIFT:"
+                            android:textColor="@color/aegis_text_muted"
+                            android:textSize="9sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/pillStep0"
+                            style="@style/AEGIS.Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_safe"
+                            android:text="28"
+                            android:textColor="@color/aegis_safe"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginEnd="3dp"
+                            android:text="→"
+                            android:textColor="@color/aegis_text_muted"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:id="@+id/pillStep1"
+                            style="@style/AEGIS.Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_safe"
+                            android:text="43"
+                            android:textColor="@color/aegis_safe"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginEnd="3dp"
+                            android:text="→"
+                            android:textColor="@color/aegis_text_muted"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:id="@+id/pillStep2"
+                            style="@style/AEGIS.Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_warning"
+                            android:text="61"
+                            android:textColor="@color/aegis_warning"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginEnd="3dp"
+                            android:text="→"
+                            android:textColor="@color/aegis_text_muted"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:id="@+id/pillStep3"
+                            style="@style/AEGIS.Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_warning"
+                            android:text="72"
+                            android:textColor="@color/aegis_warning"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginEnd="3dp"
+                            android:text="→"
+                            android:textColor="@color/aegis_text_muted"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:id="@+id/pillStep4"
+                            style="@style/AEGIS.Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_badge_danger"
+                            android:text="84"
+                            android:textColor="@color/aegis_danger"
+                            android:textSize="9sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Signature Feature: EVIDENCE GRAPH (Visual Dominance) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:layout_marginEnd="@dimen/spacing_md"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/evidence_chain_title"
+                    android:textColor="@color/aegis_text_primary"
+                    android:textSize="@dimen/text_section"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap nodes to inspect"
+                    android:textColor="@color/aegis_text_muted"
+                    android:textSize="@dimen/text_technical" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AEGIS.Card.Hero"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:layout_marginEnd="@dimen/spacing_md">
+
+                <com.aether.aegis.ui.components.EvidenceGraphView
+                    android:id="@+id/evidenceGraphView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Selected Node Inspector Callout -->
+            <TextView
+                android:id="@+id/tvSelectedNodeDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:layout_marginEnd="@dimen/spacing_md"
+                android:background="@drawable/bg_badge_info"
+                android:lineSpacingExtra="2dp"
+                android:padding="@dimen/spacing_xs"
+                android:text="Selected: RECORD_AUDIO · Background Anomaly (Screen was OFF)"
+                android:textColor="@color/aegis_info"
+                android:textSize="@dimen/text_technical" />
+
+            <!-- Category Tabs -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/spacing_md"
+                android:paddingEnd="@dimen/spacing_md"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/spacing_2xs"
+                    android:paddingBottom="@dimen/spacing_2xs">
+
+                    <TextView
+                        android:id="@+id/tabPerms"
+                        style="@style/AEGIS.Badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_xs"
+                        android:background="@drawable/bg_chip_selected"
+                        android:text="@string/permissions_category"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tabNetwork"
+                        style="@style/AEGIS.Badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_xs"
+                        android:background="@drawable/bg_chip_unselected"
+                        android:text="@string/network_category"
+                        android:textColor="@color/aegis_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tabRecs"
+                        style="@style/AEGIS.Badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chip_unselected"
+                        android:text="@string/recommended_actions"
+                        android:textColor="@color/aegis_text_secondary" />
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- Dynamic Category RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategoryItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_md"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:layout_marginEnd="@dimen/spacing_md"
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_permission" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

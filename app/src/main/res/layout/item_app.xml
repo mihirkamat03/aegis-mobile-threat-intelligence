@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AEGIS.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_md"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="@dimen/spacing_md"
+    android:layout_marginBottom="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/aegis_border">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacing_md"
+        android:paddingTop="@dimen/spacing_sm"
+        android:paddingEnd="@dimen/spacing_md"
+        android:paddingBottom="@dimen/spacing_sm">
+
+        <!-- App Icon with subtle dark circular frame -->
+        <FrameLayout
+            android:id="@+id/iconFrame"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_badge_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivAppIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_app_default" />
+        </FrameLayout>
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_marginEnd="@dimen/spacing_xs"
+            android:textColor="@color/aegis_text_primary"
+            android:textSize="@dimen/text_primary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvRiskBadge"
+            app:layout_constraintStart_toEndOf="@+id/iconFrame"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="QuickPDF Reader" />
+
+        <!-- Package Name in Mono -->
+        <TextView
+            android:id="@+id/tvPackageName"
+            style="@style/AEGIS.Text.Mono"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_xs"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/aegis_text_muted"
+            android:textSize="@dimen/text_technical"
+            app:layout_constraintEnd_toStartOf="@+id/tvRiskBadge"
+            app:layout_constraintStart_toEndOf="@+id/iconFrame"
+            app:layout_constraintTop_toBottomOf="@+id/tvAppName"
+            tools:text="com.quickpdf.reader" />
+
+        <!-- Single Clean Severity + Score Badge -->
+        <TextView
+            android:id="@+id/tvRiskBadge"
+            style="@style/AEGIS.Badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_danger"
+            android:textColor="@color/aegis_danger"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="CRITICAL · 84" />
+
+        <!-- Contributing Signal Tags Text -->
+        <TextView
+            android:id="@+id/tvRiskFactor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/spacing_xs"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/aegis_info"
+            android:textSize="@dimen/text_technical"
+            app:layout_constraintEnd_toStartOf="@+id/ivChevron"
+            app:layout_constraintStart_toEndOf="@+id/iconFrame"
+            app:layout_constraintTop_toBottomOf="@+id/tvPackageName"
+            tools:text="Microphone · Dynamic DNS C2" />
+
+        <!-- Small Sleek Horizontal Risk Progress Bar -->
+        <ProgressBar
+            android:id="@+id/pbAppRisk"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="@dimen/spacing_sm"
+            android:max="100"
+            android:progress="84"
+            android:progressDrawable="@drawable/progress_bar_horizontal_danger"
+            app:layout_constraintEnd_toStartOf="@+id/ivChevron"
+            app:layout_constraintStart_toEndOf="@+id/iconFrame"
+            app:layout_constraintTop_toBottomOf="@+id/tvRiskFactor" />
+
+        <!-- Correlated Signals Count / Note -->
+        <TextView
+            android:id="@+id/tvSignalsCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/spacing_xs"
+            android:textColor="@color/aegis_text_secondary"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/ivChevron"
+            app:layout_constraintStart_toEndOf="@+id/iconFrame"
+            app:layout_constraintTop_toBottomOf="@+id/pbAppRisk"
+            tools:text="4 correlated signals detected" />
+
+        <!-- Subtle Chevron Indicator -->
+        <ImageView
+            android:id="@+id/ivChevron"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_arrow_right"
+            app:tint="@color/aegis_text_muted"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

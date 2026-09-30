@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardThreatRoot"
+    style="@style/AEGIS.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_md"
+    android:layout_marginTop="@dimen/spacing_2xs"
+    android:layout_marginEnd="@dimen/spacing_md"
+    android:layout_marginBottom="@dimen/spacing_2xs"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_md">
+
+        <!-- Threat Title -->
+        <TextView
+            android:id="@+id/tvThreatTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_xs"
+            android:textColor="@color/aegis_text_primary"
+            android:textSize="@dimen/text_primary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvThreatSeverity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Unauthorized C2 Audio Exfiltration" />
+
+        <!-- Severity Badge -->
+        <TextView
+            android:id="@+id/tvThreatSeverity"
+            style="@style/AEGIS.Badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_danger"
+            android:textColor="@color/aegis_danger"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="CRITICAL" />
+
+        <!-- Associated App -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2xs"
+            android:textColor="@color/aegis_info"
+            android:textSize="@dimen/text_secondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvThreatTitle"
+            tools:text="Target: QuickPDF Reader" />
+
+        <!-- Threat Description -->
+        <TextView
+            android:id="@+id/tvThreatDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/aegis_text_secondary"
+            android:textSize="@dimen/text_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAppName"
+            tools:text="Microphone stream correlated with outbound dynamic DNS destination matching known AbuseIPDB C2 pulse." />
+
+        <!-- Evidence Signal Counter & Timestamp in Mono -->
+        <TextView
+            android:id="@+id/tvEvidenceCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:background="@drawable/bg_badge_warning"
+            android:paddingStart="@dimen/spacing_xs"
+            android:paddingTop="2dp"
+            android:paddingEnd="@dimen/spacing_xs"
+            android:paddingBottom="2dp"
+            android:textColor="@color/aegis_warning"
+            android:textSize="@dimen/text_technical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvThreatDescription"
+            tools:text="4 Correlated Signals" />
+
+        <TextView
+            android:id="@+id/tvDetectionTime"
+            style="@style/AEGIS.Text.Mono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_xs"
+            android:textColor="@color/aegis_text_muted"
+            android:textSize="@dimen/text_technical"
+            app:layout_constraintBottom_toBottomOf="@+id/tvEvidenceCount"
+            app:layout_constraintStart_toEndOf="@+id/tvEvidenceCount"
+            app:layout_constraintTop_toTopOf="@+id/tvEvidenceCount"
+            tools:text="10:44 PM" />
+
+        <!-- Clean Action Link -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnInvestigate"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:text="Investigate →"
+            android:textColor="@color/aegis_info"
+            android:textSize="@dimen/text_secondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvThreatDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AEGIS.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_2xs"
+    android:layout_marginBottom="@dimen/spacing_2xs">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_md">
+
+        <TextView
+            android:id="@+id/tvRecTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/aegis_text_primary"
+            android:textSize="@dimen/text_primary"
+            android:textStyle="bold"
+            tools:text="Revoke Microphone Permission" />
+
+        <TextView
+            android:id="@+id/tvRecDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2xs"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/aegis_text_secondary"
+            android:textSize="@dimen/text_secondary"
+            tools:text="QuickPDF does not require background audio recording for document viewing." />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRecAction"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:backgroundTint="@color/aegis_info"
+            android:text="Execute: Revoke Permission"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_secondary"
+            app:cornerRadius="@dimen/radius_control" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

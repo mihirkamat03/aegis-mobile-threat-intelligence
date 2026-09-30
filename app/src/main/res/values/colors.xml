@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- AEGIS Premium Light Security UI Surfaces -->
+    <color name="aegis_bg">#F6F8FC</color>
+    <color name="aegis_surface">#FFFFFF</color>
+    <color name="aegis_card">#FFFFFF</color>
+    <color name="aegis_card_elevated">#F8FAFD</color>
+    <color name="aegis_card_subtle">#F1F5F9</color>
+    <color name="aegis_overlay">#EDF2F9</color>
+    <color name="aegis_border">#E2E8F0</color>
+    <color name="aegis_border_subtle">#F1F5F9</color>
+    <color name="aegis_border_active">#356AE6</color>
+    <color name="aegis_track">#E2E8F0</color>
+
+    <!-- Semantic Tonal Tokens (High Contrast on Light Theme) -->
+    <color name="aegis_safe">#059669</color>
+    <color name="aegis_safe_bg">#ECFDF5</color>
+    <color name="aegis_safe_stroke">#A7F3D0</color>
+
+    <color name="aegis_warning">#D97706</color>
+    <color name="aegis_warning_bg">#FFFBEB</color>
+    <color name="aegis_warning_stroke">#FDE68A</color>
+
+    <color name="aegis_danger">#EA580C</color>
+    <color name="aegis_danger_bg">#FFF7ED</color>
+    <color name="aegis_danger_stroke">#FED7AA</color>
+
+    <color name="aegis_critical">#DC2626</color>
+    <color name="aegis_critical_bg">#FEF2F2</color>
+    <color name="aegis_critical_stroke">#FECACA</color>
+
+    <color name="aegis_info">#356AE6</color>
+    <color name="aegis_info_bg">#EFF6FF</color>
+    <color name="aegis_info_stroke">#BFDBFE</color>
+
+    <!-- Text Hierarchy -->
+    <color name="aegis_text_primary">#172033</color>
+    <color name="aegis_text_secondary">#5B6B84</color>
+    <color name="aegis_text_muted">#8C9BB0</color>
+    <color name="aegis_text_code">#2563EB</color>
+
+    <!-- Base Constants -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+</resources>

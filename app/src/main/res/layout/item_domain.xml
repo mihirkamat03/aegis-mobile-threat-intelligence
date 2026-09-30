@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AEGIS.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_2xs"
+    android:layout_marginBottom="@dimen/spacing_2xs">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_sm">
+
+        <!-- Domain Name -->
+        <TextView
+            android:id="@+id/tvDomainName"
+            style="@style/AEGIS.Text.Mono"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_xs"
+            android:textColor="@color/aegis_text_primary"
+            android:textSize="@dimen/text_secondary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvDomainReputation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="sync-audio-cdn.hopto.org" />
+
+        <!-- Reputation Badge -->
+        <TextView
+            android:id="@+id/tvDomainReputation"
+            style="@style/AEGIS.Badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_danger"
+            android:textColor="@color/aegis_danger"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="C2 HOST" />
+
+        <!-- IP & Protocol Details -->
+        <TextView
+            android:id="@+id/tvDomainIp"
+            style="@style/AEGIS.Text.Mono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/aegis_text_muted"
+            android:textSize="@dimen/text_technical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDomainName"
+            tools:text="IP: 185.220.101.42 · Dynamic DNS" />
+
+        <!-- Threat Intelligence Match Note -->
+        <TextView
+            android:id="@+id/tvThreatIntel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2xs"
+            android:textColor="@color/aegis_warning"
+            android:textSize="@dimen/text_technical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDomainIp"
+            tools:text="Matched AbuseIPDB C2 pulse (Confidence 96%)" />
+
+        <!-- Action Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBlockDomain"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:text="Simulate Block"
+            android:textColor="@color/aegis_info"
+            android:textSize="@dimen/text_technical"
+            app:cornerRadius="@dimen/radius_control"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvThreatIntel"
+            app:strokeColor="@color/aegis_info_stroke" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

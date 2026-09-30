@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AEGIS.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_2xs"
+    android:layout_marginBottom="@dimen/spacing_2xs">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_sm">
+
+        <!-- Permission Identifier -->
+        <TextView
+            android:id="@+id/tvPermName"
+            style="@style/AEGIS.Text.Mono"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_xs"
+            android:textColor="@color/aegis_text_primary"
+            android:textSize="@dimen/text_secondary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvPermBadge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="RECORD_AUDIO" />
+
+        <!-- Status Badge -->
+        <TextView
+            android:id="@+id/tvPermBadge"
+            style="@style/AEGIS.Badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_danger"
+            android:textColor="@color/aegis_danger"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="ANOMALY" />
+
+        <!-- Usage Context -->
+        <TextView
+            android:id="@+id/tvPermContext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2xs"
+            android:lineSpacingExtra="2dp"
+            android:textColor="@color/aegis_text_secondary"
+            android:textSize="@dimen/text_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPermName"
+            tools:text="Active 4m ago while screen was OFF (Without user interaction)" />
+
+        <!-- Last Observed -->
+        <TextView
+            android:id="@+id/tvPermLastUsed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2xs"
+            android:textColor="@color/aegis_text_muted"
+            android:textSize="@dimen/text_technical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPermContext"
+            tools:text="Last observed: 4m ago" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

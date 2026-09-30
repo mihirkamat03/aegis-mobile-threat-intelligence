@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_glow_light"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:layout_marginEnd="@dimen/spacing_md"
+        android:text="@string/threat_center"
+        android:textColor="@color/aegis_text_primary"
+        android:textSize="@dimen/text_title"
+        android:textStyle="bold" />
+
+    <!-- Severity Filter Chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:overScrollMode="never"
+        android:paddingStart="@dimen/spacing_md"
+        android:paddingEnd="@dimen/spacing_md"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/spacing_2xs"
+            android:paddingBottom="@dimen/spacing_2xs">
+
+            <TextView
+                android:id="@+id/chipThreatAll"
+                style="@style/AEGIS.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:background="@drawable/bg_chip_selected"
+                android:text="All"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/chipThreatCritical"
+                style="@style/AEGIS.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:background="@drawable/bg_chip_unselected"
+                android:text="@string/filter_critical"
+                android:textColor="@color/aegis_text_secondary" />
+
+            <TextView
+                android:id="@+id/chipThreatHigh"
+                style="@style/AEGIS.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:background="@drawable/bg_chip_unselected"
+                android:text="@string/filter_high"
+                android:textColor="@color/aegis_text_secondary" />
+
+            <TextView
+                android:id="@+id/chipThreatResolved"
+                style="@style/AEGIS.Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip_unselected"
+                android:text="@string/filter_resolved"
+                android:textColor="@color/aegis_text_secondary" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <!-- Counter Strip -->
+    <TextView
+        android:id="@+id/tvThreatCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_md"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:layout_marginEnd="@dimen/spacing_md"
+        android:layout_marginBottom="@dimen/spacing_2xs"
+        android:letterSpacing="0.02"
+        android:text="2 Active Threats · 1 Resolved"
+        android:textColor="@color/aegis_text_muted"
+        android:textSize="@dimen/text_technical" />
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvThreatsList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingBottom="@dimen/spacing_lg"
+        tools:listitem="@layout/item_threat" />
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/layoutThreatsEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_xl"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_shield_check"
+            app:tint="@color/aegis_safe" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:text="No Active Threats"
+            android:textColor="@color/aegis_text_primary"
+            android:textSize="@dimen/text_primary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2xs"
+            android:text="Your device has no unresolved security findings"
+            android:textColor="@color/aegis_text_secondary"
+            android:textSize="@dimen/text_secondary" />
+    </LinearLayout>
+
+</LinearLayout>
