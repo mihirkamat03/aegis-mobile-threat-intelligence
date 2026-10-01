@@ -20,29 +20,44 @@
         <item name="android:textColorSecondary">@color/aegis_text_secondary</item>
     </style>
 
-    <!-- AEGIS Design System Cards -->
+    <!-- AEGIS Design System Cards (3D Box Shadow Architecture) -->
     <style name="AEGIS.Card" parent="Widget.MaterialComponents.CardView">
         <item name="cardBackgroundColor">@color/aegis_card</item>
         <item name="cardCornerRadius">@dimen/radius_card</item>
-        <item name="cardElevation">1dp</item>
-        <item name="strokeColor">@color/aegis_border</item>
+        <item name="cardElevation">6dp</item>
+        <item name="cardMaxElevation">10dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="strokeColor">@color/aegis_card_stroke_3d</item>
         <item name="strokeWidth">@dimen/stroke_subtle</item>
+        <item name="android:outlineSpotShadowColor">@color/aegis_shadow_spot</item>
+        <item name="android:outlineAmbientShadowColor">@color/aegis_shadow_ambient</item>
     </style>
 
     <style name="AEGIS.Card.Hero" parent="Widget.MaterialComponents.CardView">
         <item name="cardBackgroundColor">@color/aegis_card</item>
         <item name="cardCornerRadius">@dimen/radius_hero</item>
-        <item name="cardElevation">2dp</item>
-        <item name="strokeColor">@color/aegis_border</item>
+        <item name="cardElevation">10dp</item>
+        <item name="cardMaxElevation">16dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="strokeColor">@color/aegis_card_stroke_3d</item>
         <item name="strokeWidth">@dimen/stroke_subtle</item>
+        <item name="android:outlineSpotShadowColor">@color/aegis_shadow_spot</item>
+        <item name="android:outlineAmbientShadowColor">@color/aegis_shadow_ambient</item>
     </style>
 
     <style name="AEGIS.Card.Elevated" parent="Widget.MaterialComponents.CardView">
         <item name="cardBackgroundColor">@color/aegis_card</item>
         <item name="cardCornerRadius">@dimen/radius_card</item>
-        <item name="cardElevation">2dp</item>
-        <item name="strokeColor">@color/aegis_border</item>
-        <item name="strokeWidth">@dimen/stroke_subtle</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardMaxElevation">14dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="strokeColor">@color/aegis_danger_stroke</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="android:outlineSpotShadowColor">@color/aegis_shadow_spot</item>
+        <item name="android:outlineAmbientShadowColor">@color/aegis_shadow_ambient</item>
     </style>
 
     <!-- Badges & Chips -->

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <corners android:radius="26dp" />
+    <corners android:radius="@dimen/radius_card" />
     <gradient
         android:angle="270"
-        android:startColor="#0CEF4444"
+        android:startColor="#20EF4444"
+        android:centerColor="#0CEF4444"
         android:endColor="#00EF4444"
         android:type="linear" />
     <stroke
         android:width="1.2dp"
-        android:color="#40EF4444" />
+        android:color="#4DEF4444" />
 </shape>

@@ -1,43 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Base Solid Background -->
+    <!-- Base Solid Background: Clean cool slate canvas -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/aegis_bg" />
+            <solid android:color="#F4F7FC" />
         </shape>
     </item>
 
-    <!-- Top-Right Subtle Blue/Indigo Ambient Glow -->
+    <!-- Top Primary Radiant Azure Glow (High-tech cybersecurity atmosphere) -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#38356AE6"
+                android:centerColor="#14356AE6"
+                android:endColor="#00F4F7FC"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Top-Right Cyber Violet Glow -->
     <item>
         <shape android:shape="rectangle">
             <gradient
                 android:angle="225"
-                android:startColor="#0D356AE6"
-                android:centerColor="#04356AE6"
-                android:endColor="#00F6F8FC"
+                android:startColor="#2C6366F1"
+                android:centerColor="#0E6366F1"
+                android:endColor="#00F4F7FC"
                 android:type="linear" />
         </shape>
     </item>
 
-    <!-- Top-Left Extremely Subtle Violet/Blue Glow -->
+    <!-- Top-Left Luminous Electric Cyan Accent -->
     <item>
         <shape android:shape="rectangle">
             <gradient
                 android:angle="315"
-                android:startColor="#0A6366F1"
-                android:centerColor="#036366F1"
-                android:endColor="#00F6F8FC"
+                android:startColor="#2400B4D8"
+                android:centerColor="#0A00B4D8"
+                android:endColor="#00F4F7FC"
                 android:type="linear" />
         </shape>
     </item>
 
-    <!-- Lower Area Soft Cool Ambient Glow -->
+    <!-- Center Soft Horizon Glow (casts light behind middle cards) -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="180"
+                android:startColor="#14356AE6"
+                android:centerColor="#00F4F7FC"
+                android:endColor="#106366F1"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Bottom Soft Ground Uplight -->
     <item>
         <shape android:shape="rectangle">
             <gradient
                 android:angle="90"
-                android:startColor="#06356AE6"
-                android:endColor="#00F6F8FC"
+                android:startColor="#16356AE6"
+                android:centerColor="#04356AE6"
+                android:endColor="#00F4F7FC"
                 android:type="linear" />
         </shape>
     </item>

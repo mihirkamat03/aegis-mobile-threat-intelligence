@@ -10,7 +10,17 @@
     <color name="aegis_border">#E2E8F0</color>
     <color name="aegis_border_subtle">#F1F5F9</color>
     <color name="aegis_border_active">#356AE6</color>
+    <color name="aegis_card_stroke_3d">#E1E8F2</color>
     <color name="aegis_track">#E2E8F0</color>
+
+    <!-- 3D Box Shadow Tokens (Hardware Accelerated) -->
+    <color name="aegis_shadow_spot">#3314223B</color>
+    <color name="aegis_shadow_ambient">#1C14223B</color>
+
+    <!-- Ambient Glow Tokens -->
+    <color name="aegis_glow_azure">#356AE6</color>
+    <color name="aegis_glow_indigo">#6366F1</color>
+    <color name="aegis_glow_cyan">#00B4D8</color>
 
     <!-- Semantic Tonal Tokens (High Contrast on Light Theme) -->
     <color name="aegis_safe">#059669</color>

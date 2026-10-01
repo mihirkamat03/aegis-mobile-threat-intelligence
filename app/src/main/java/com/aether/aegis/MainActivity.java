@@ -12,6 +12,7 @@ import com.aether.aegis.data.repository.AegisRepository;
 import com.aether.aegis.databinding.ActivityMainBinding;
 import com.aether.aegis.ui.activity.ActivityFragment;
 import com.aether.aegis.ui.apps.AppsFragment;
+import com.aether.aegis.ui.motion.MotionUtils;
 import com.aether.aegis.ui.overview.OverviewFragment;
 import com.aether.aegis.ui.settings.SettingsFragment;
 import com.aether.aegis.ui.threats.ThreatsFragment;
